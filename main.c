@@ -14,20 +14,15 @@ void print_reverse(char *s) {
 }
 
 int main() {
-  float latitude;
-  float longitude;
-  char info[80];
-  int started = 0;
-  puts("data=[");
-  while (scanf("%f, %f, %79[^\n]", &latitude, &longitude, info) == 3) {
-    if (started) {
-      printf(",\n");
+  char word[10];
+  int i = 0;
+  while (scanf("%9s", word) == 1) {
+    i = i + 1;
+    if (i % 2) {
+      fprintf(stdout, "%s\n", word);
     } else {
-      started = 1;
+      fprintf(stderr, "%s\n", word);
     }
-    printf("{latitude: %f, longitude: %f, info: '%s'}", latitude, longitude,
-           info);
   }
-  puts("\n]");
   return 0;
 }
